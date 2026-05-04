@@ -57,6 +57,25 @@ public final class DataStore {
         }
     }
 
+    public static synchronized boolean addUser(String username, String password, String role) {
+        String cleanedUsername = username == null ? "" : username.trim();
+        String cleanedPassword = password == null ? "" : password.trim();
+        String cleanedRole = role == null ? "CASHIER" : role.trim().toUpperCase();
+
+        if (cleanedUsername.isEmpty() || cleanedPassword.isEmpty()) {
+            return false;
+        }
+
+        boolean exists = users.stream().anyMatch(u -> u.getUsername().equalsIgnoreCase(cleanedUsername));
+        if (exists) {
+            return false;
+        }
+
+        users.add(new User(cleanedUsername, cleanedPassword, cleanedRole));
+        saveData();
+        return true;
+    }
+
     public static List<User> getUsers() { return users; }
     public static List<Book> getBooks() { return books; }
     public static List<Customer> getCustomers() { return customers; }

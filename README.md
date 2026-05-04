@@ -45,10 +45,26 @@ On first run, the app auto-creates `pos_data.ser` with seed data:
 - **Admin**: `admin` / `admin123`
 - **Cashier**: `cashier` / `cash123`
 
+
+## Assets Folder Names and Placement
+Place these folders **inside your project root** (same level as `src`):
+
+```text
+DigiLibrary/
+  src/
+    assets/
+      covers/        <- put all book cover PNG/JPG files here
+      themes/        <- put theme JPG files here
+```
+
+- Book cover folder name: `covers`
+- Theme folder name: `themes`
+- For dark mode, expected theme filename: `starry_night.jpg` inside `src/assets/themes/`
+
 ## Where to Place Images
 
-### Book cover images
-Place cover files in:
+### Book cover images (PNG/JPG)
+Place your book cover **PNG or JPG** files in:
 
 ```text
 src/assets/covers/
